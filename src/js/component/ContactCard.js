@@ -6,6 +6,8 @@ import MikePhoto from "../../img/m101.jpg";
 export const ContactCard = props => {
 	const [state, setState] = useState({});
 
+	const [store, actions] = useContext("Context");
+	console.log("Agenda", store.agenda);
 	return (
 		<li className="list-group-item">
 			<div className="row w-100">

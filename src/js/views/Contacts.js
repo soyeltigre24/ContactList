@@ -8,6 +8,7 @@ export const Contacts = () => {
 	const [state, setState] = useState({
 		showModal: false
 	});
+	const [store, setStore] = useState(["agenda"]);
 
 	return (
 		<div className="container">
@@ -28,7 +29,6 @@ export const Contacts = () => {
 						})}
 				</ul>
 			</div>
-			); })}
 			<Modal show={state.showModal} onClose={() => setState({ showModal: false })} />
 		</div>
 	);
