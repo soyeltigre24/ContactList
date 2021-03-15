@@ -3,11 +3,17 @@ import { Link } from "react-router-dom";
 
 export const AddContact = () => {
 	const [save, setSave] = useState("");
+	const [savelist, setSavelist] = useState([]);
 
 	const saveupdate = e => {
 		setSave(e.target.value);
 	};
-
+	const finallist = () => {
+		setSavelist([...savelist, save]);
+		console.log("before list", save);
+		setSave("");
+		console.log("after list", save);
+	};
 	return (
 		<div className="container">
 			<div>
@@ -29,7 +35,12 @@ export const AddContact = () => {
 						<label>Address</label>
 						<input type="text" className="form-control" placeholder="Enter address" />
 					</div>
-					<button type="button" className="btn btn-primary form-control">
+					<button
+						type="button"
+						className="btn btn-primary form-control"
+						onClick={finallist}
+						onChange={e => setSave(e.target.value)}
+						value={save}>
 						save
 					</button>
 					<Link className="mt-3 w-100 text-center" to="/">
