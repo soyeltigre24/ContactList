@@ -1,7 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export const AddContact = () => {
+	const [save, setSave] = useState("");
+
+	const saveupdate = e => {
+		setSave(e.target.value);
+	};
+
 	return (
 		<div className="container">
 			<div>
