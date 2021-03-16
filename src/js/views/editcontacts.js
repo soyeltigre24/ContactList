@@ -1,7 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
-export const AddContact = () => {
+export const EditContacts = () => {
+	const { actions } = useContext(Context);
+	const [phone, setPhone] = useState("");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [address, setAddress] = useState("");
+	console.log("try", store.contacts);
+
 	return (
 		<div className="container">
 			<div>
@@ -9,7 +17,13 @@ export const AddContact = () => {
 				<form>
 					<div className="form-group">
 						<label>Full Name</label>
-						<input type="text" className="form-control" placeholder="Full Name" />
+						<input
+							type="text"
+							className="form-control"
+							placeholder="Full Name"
+							defaultValue={store.conacts[PropTypes.nominalTypeHack.params.index].full_name}
+							onChange={e => setName(e.target.value)}
+						/>
 					</div>
 					<div className="form-group">
 						<label>Email</label>
@@ -33,4 +47,11 @@ export const AddContact = () => {
 			</div>
 		</div>
 	);
+};
+export default EditContacts;
+
+EditContacts.propTypes = {
+	match: PropTypes.objects,
+	history: PropTypes.object,
+	onDelete: PropTypes.func
 };
