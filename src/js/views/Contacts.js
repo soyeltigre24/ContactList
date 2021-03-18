@@ -23,7 +23,7 @@ export const Contacts = () => {
 				<ul className="list-group pull-down" id="contact-list">
 					{store.contacts &&
 						store.contacts.map((item, index) => {
-							return <ContactCard key={index} item={item} />;
+							return <ContactCard key={index} item={item} index={index} />;
 						})}
 				</ul>
 			</div>

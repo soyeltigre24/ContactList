@@ -1,16 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 import { Context } from "../store/appContext";
 
 export const EditContacts = props => {
+	const { store, actions } = useContext(Context);
 	let short = store.contacts[props.match.params.index];
 	let id = props.match.params.id;
-	const { store, actions } = useContext(Context);
-	const [phone, setPhone] = useState(short.phone);
-	const [name, setName] = useState(short.full_name);
-	const [email, setEmail] = useState(short.email);
-	const [address, setAddress] = useState(short.address);
+	const [phone, setPhone] = useState("");
+	const [name, setName] = useState("");
+	const [email, setEmail] = useState("");
+	const [address, setAddress] = useState("");
 	console.log("try", store.contacts);
 
 	return (
@@ -24,7 +24,7 @@ export const EditContacts = props => {
 							type="text"
 							className="form-control"
 							placeholder="Full Name"
-							defaultValue={store.conacts[PropTypes.name.params.index].full_name}
+							defaultValue={""}
 							onChange={e => setName(e.target.value)}
 						/>
 					</div>
