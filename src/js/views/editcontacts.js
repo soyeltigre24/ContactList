@@ -30,22 +30,40 @@ export const EditContacts = props => {
 					</div>
 					<div className="form-group">
 						<label>Email</label>
-						<input type="email" className="form-control" placeholder="Enter email" />
+						<input
+							type="email"
+							className="form-control"
+							placeholder="Enter email"
+							defaultValue={""}
+							onChange={e => setEmail(e.target.value)}
+						/>
 					</div>
 					<div className="form-group">
 						<label>Phone</label>
-						<input type="phone" className="form-control" placeholder="Enter phone" />
+						<input
+							type="phone"
+							className="form-control"
+							placeholder="Enter phone"
+							defaultValue={""}
+							onChange={e => setPhone(e.target.value)}
+						/>
 					</div>
 					<div className="form-group">
 						<label>Address</label>
-						<input type="text" className="form-control" placeholder="Enter address" />
+						<input
+							type="text"
+							className="form-control"
+							placeholder="Enter address"
+							defaultValue={""}
+							onChange={e => setAddress(e.target.value)}
+						/>
 					</div>
 					<Link to={"/"}>
 						<button
 							type="button"
 							className="btn btn-primary form-control"
 							onClick={() => {
-								actions.editContacts(props.match.params.id, name, phone, email, address);
+								actions.editContacts(id, name, phone, email, address);
 							}}>
 							{" "}
 							save
