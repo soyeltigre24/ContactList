@@ -9,7 +9,7 @@ const getState = ({ getStore, setStore }) => {
 		},
 		actions: {
 			getContacts: () => {
-				fetch("https://assets.breatheco.de/apis/fake/contact/agenda/Jairo")
+				fetch(url + "agenda/Jairo")
 					.then(response => response.json())
 					.then(contacts => {
 						console.log(contacts);
@@ -67,10 +67,10 @@ const getState = ({ getStore, setStore }) => {
 				fetch(url + id, {
 					method: "Delete"
 				}).then(() => {
-					fetch(url + "https://assets.breatheco.de/apis/fake/contact/agenda/Jairo")
+					fetch(url + "agenda/Jairo")
 						.then(response => response.json())
 						.then(result => {
-							console.log("result", result),
+							console.log("delete", result),
 								setStore({
 									contacts: result
 								});

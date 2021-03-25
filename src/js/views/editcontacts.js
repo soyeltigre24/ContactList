@@ -7,10 +7,10 @@ export const EditContacts = props => {
 	const { store, actions } = useContext(Context);
 	let short = store.contacts[props.match.params.index];
 	let id = props.match.params.id;
-	const [phone, setPhone] = useState("");
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [address, setAddress] = useState("");
+	const [phone, setPhone] = useState(short.phone);
+	const [name, setName] = useState(short.full_name);
+	const [email, setEmail] = useState(short.email);
+	const [address, setAddress] = useState(short.address);
 	console.log("try", store.contacts);
 
 	return (
@@ -24,7 +24,7 @@ export const EditContacts = props => {
 							type="text"
 							className="form-control"
 							placeholder="Full Name"
-							defaultValue={""}
+							defaultValue={name}
 							onChange={e => setName(e.target.value)}
 						/>
 					</div>
@@ -34,7 +34,7 @@ export const EditContacts = props => {
 							type="email"
 							className="form-control"
 							placeholder="Enter email"
-							defaultValue={""}
+							defaultValue={email}
 							onChange={e => setEmail(e.target.value)}
 						/>
 					</div>
@@ -44,7 +44,7 @@ export const EditContacts = props => {
 							type="phone"
 							className="form-control"
 							placeholder="Enter phone"
-							defaultValue={""}
+							defaultValue={phone}
 							onChange={e => setPhone(e.target.value)}
 						/>
 					</div>
@@ -54,7 +54,7 @@ export const EditContacts = props => {
 							type="text"
 							className="form-control"
 							placeholder="Enter address"
-							defaultValue={""}
+							defaultValue={address}
 							onChange={e => setAddress(e.target.value)}
 						/>
 					</div>
